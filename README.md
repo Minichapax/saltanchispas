@@ -9,4 +9,4 @@ de la USC, para la asignatura de Desenvolvemente de Aplicacións Web.
 
 ###### IGNORE ########
 
---https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default
+Web visualizador html -> https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default
