@@ -1,5 +1,5 @@
 Web visualizador html -> https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default
-
+Web recursos html     -> https://webcode.tools/
 
 Práctica 2: 
   Crear prototipo en sucesión secuencial
