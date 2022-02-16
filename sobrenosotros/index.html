@@ -4,26 +4,29 @@
 	<head>
 		<title>Saltan Chispas</title>
         <meta name = "author" content = "Alberto Pérez HErnández y Antón Pérez Vázquez">
-
+        <link rel="stylesheet" href="../orange.css">
 	</head>
-	<body>
+	
+    <body>
 
+		
 		<!-- Imagenes cabecera -->
-		<p>
-            <img src = "../imagenes/logoL.png" alt= "logo en vista de pc" width="300" height="100">
-            <img src = "../imagenes/login.png" alt= "icono de login" width="60" height="70">
-        </p>
-		<!-- MENU -->
-		<p>
-			<a href = "../index.html">Inicio</a>
-			<a href = "../actualidad/index.html">Actualidad</a>
-			<a href = "../foro/index.html">Foro</a>
-			<a href = "../campeonatos/f1.html">Campeonatos</a>
-			<a href = "../galeria/index.html">Galería</a>
-			<a href = "../miperfil/index.html">Mi Perfil</a>
-			<a href = "../sobrenosotros/index.html">Sobre Nosotros</a>	
-		</p>
 
+		<div class = "cabecera" > 
+			<img id = "logo" src = "../imagenes/logoL.png" alt= "logo en vista de pc" width="300" height="100">
+			<img id = "iniciarSesion" src = "../imagenes/login.png" alt= "icono de login" height="55">
+		</div>
+		<!-- MENU -->
+		<div class = "menu">
+				<a class = "menu" href = "../index.html">Inicio</a>
+				<a class = "menu" href = "../actualidad/index.html">Actualidad</a>
+				<a class = "menu" href = "../foro/index.html">Foro</a>
+				<a class = "menu" href = "../campeonatos/f1.html">Campeonatos</a>
+				<a class = "menu" href = "../galeria/index.html">Galería</a>
+				<a class = "menu" href = "../miperfil/index.html">Mi Perfil</a>
+				<a class = "menu" href = "../sobrenosotros/index.html">Sobre Nosotros</a>	
+			
+		</div>
         <!-- IMAGENES-->
         
         <p>
@@ -59,10 +62,11 @@
 
 
 		<!-- PIE DE PAGINA-->
-		<p>
-            <br><br><br>
-			Este sitio web no es oficial y no está asociado en ningún modo con el grupo de compañías de la Fórmula 1. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX y marcas relacionadas son marcas registradas de Formula One Licensing B.V.	
-		</p>
+		<div class="piePagina">
+			<h3 id="pieDePagina">
+				Este sitio web no es oficial y no está asociado en ningún modo con el grupo de compañías de la Fórmula 1. F1, FORMULA ONE, FORMULA 1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX y marcas relacionadas son marcas registradas de Formula One Licensing B.V.	
+			</h3>
+		</div>
 
 	</body>
 </html>
