@@ -1,0 +1,12 @@
+
+/*
+    NOTICIAS
+*/
+a.verMas{
+    text-decoration: none;
+    color: #00b0e0;
+}
+a.verMas:hover{
+    color:#237f99;
+
+}
