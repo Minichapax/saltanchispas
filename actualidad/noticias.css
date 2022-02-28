@@ -1,0 +1,100 @@
+/*
+    CUERPO
+*/
+
+.cuerpo {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: 30px 200px 300px;
+    grid-gap: 10px;
+}
+
+/*
+
+BUSCADOR
+*/
+
+.buscadordiv{
+    top: 10px;
+    position: relative;
+    height: 30px;
+}
+.buscador{
+
+    position: absolute;
+    right: 30px;
+    width: 150px;
+
+}
+
+/*
+    TITULAR
+*/
+
+.titular{
+    
+    position: relative;
+    height: 330px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.imagendiv{
+
+    position: absolute;
+    width: 30%;
+    height: 100%;
+
+}
+
+.imagen{
+
+    float: left;
+    object-fit: contain;
+    width: 100%;
+
+}
+
+
+
+/*
+    TEXTO NOTICIAS
+*/
+
+
+.titular h1{
+
+    position: relative;
+    left: 34%;
+    width: 66%;
+    text-align: justify;
+}
+
+.titular h2{
+
+    position: relative;
+    left: 34%;
+    width: 66%;
+    text-align: justify;
+
+}
+
+.texto{
+
+    margin-left: 5%;
+    margin-right: 5%;
+
+
+}
+.texto h3{
+
+    text-align: justify;
+
+}
+
+.titular h4 {
+
+    text-align: right;
+
+}
