@@ -1,0 +1,13 @@
+.cuerpo > .etiqueta{
+    position: relative;
+    top: 10px;
+    left: 15px;
+    padding-bottom: 20px;
+}
+
+.etuqueta > .campo{
+    position: relative;
+    padding: 40px;
+    
+
+}
