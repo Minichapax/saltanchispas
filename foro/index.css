@@ -1,0 +1,64 @@
+
+/*
+    CUERPO
+*/
+.cuerpo {
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 30px 600px;
+    grid-gap: 10px;
+}
+
+
+/*
+
+BUSCADOR
+*/
+
+.buscadordiv{
+
+    grid-column: 1/3;
+    top: 10px;
+    position: relative;
+    height: 30px;
+
+}
+.buscador{
+
+    position: absolute;
+    right: 30px;
+    width: 150px;
+
+}
+
+
+/*
+    FORO
+*/
+
+.foro{
+    
+    padding-left: 5%;    
+}
+
+.foro h3{
+    
+    text-align: right;
+}
+
+.hilo{
+
+    border-bottom: thin solid #000000;
+
+}
+/*
+    RESPUESTAS
+*/
+
+.recibidas{
+
+    border-left: thin solid #00b0e0;
+    padding: 5%;
+
+}

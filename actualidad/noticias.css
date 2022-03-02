@@ -6,7 +6,7 @@
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-row: 30px 200px 300px;
+    grid-template-rows: 5% 30% 60%;
     grid-gap: 10px;
 }
 
@@ -40,20 +40,14 @@ BUSCADOR
     margin-right: 3%;
 }
 
-.imagendiv{
 
-    position: absolute;
-    width: 30%;
-    height: 100%;
-
-}
-
-.imagen{
+.titular img{
 
     float: left;
-    object-fit: contain;
-    width: 100%;
-
+    object-fit: cover;
+    width: 30%;
+    height: 100%;
+    margin-right: 5%;
 }
 
 
@@ -66,17 +60,20 @@ BUSCADOR
 .titular h1{
 
     position: relative;
-    left: 34%;
-    width: 66%;
     text-align: justify;
 }
 
 .titular h2{
 
     position: relative;
-    left: 34%;
-    width: 66%;
     text-align: justify;
+
+}
+
+
+.titular h4 {
+
+    text-align: right;
 
 }
 
@@ -85,16 +82,10 @@ BUSCADOR
     margin-left: 5%;
     margin-right: 5%;
 
-
 }
+
 .texto h3{
 
     text-align: justify;
-
-}
-
-.titular h4 {
-
-    text-align: right;
 
 }
