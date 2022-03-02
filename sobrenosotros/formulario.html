@@ -5,6 +5,7 @@
 		<title>Saltan Chispas</title>
         <meta name = "author" content = "Alberto Pérez HErnández y Antón Pérez Vázquez">
 		<link rel="stylesheet" href="../orange.css">
+		<link rel="stylesheet" href="formulario.css">
 	</head>
 	<body>
 
@@ -26,17 +27,34 @@
 			<a class = "menus" href = "../sobrenosotros/index.html">Sobre Nosotros</a>	
 			
 		</div>
-
+		<div class = "cuerpo">
         <!-- FORMULARIO-->
-        <p>
-            <label for = "nombre">Nombre</label> <input type="text" name="nombre" size="16" required><br>
-            <label for = "asunto">Asunto</label> <input type="text" name="nombre" size="16" required><br>
-            <label for = "textarea">Nombre</label><textarea name="textarea" cols="80" rows="30" minlength="2" maxlength="500" required>Estimados Alberto y Antón, ... </textarea><br>
+			<div class = "etiqueta1">
+            	<label for = "nombre">Nombre</label>
+			</div>
 
-            <button type="button" name="enviarButton">Enviar</button>
+			<div class = "campo1">
+				<input type="text" name="nombre" size="16" required>
+			</div>
 
-        </p>
+			<div class = "etiqueta2">
+            	<label for = "asunto">Asunto</label>
+			</div>
 
+			<div class = "campo2">
+				<input type="text" name="nombre" size="16" required>
+			</div>
+
+
+			<div class = "campo3">
+				<textarea name="textarea" cols="80" rows="30" minlength="2" maxlength="500" required>Estimados Alberto y Antón, ... </textarea>
+			</div>
+
+			<div class = "botonenviar">
+            	<button type="button" name="enviarButton">Enviar</button>
+			</div>
+        
+		</div>
 		<!-- PIE DE PAGINA-->
 
 		<div class="piePagina">

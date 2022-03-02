@@ -5,6 +5,7 @@
 		<title>Saltan Chispas</title>
 		<meta name = "author" content = "Alberto Pérez HErnández y Antón Pérez Vázquez">
 		<link rel="stylesheet" href="../orange.css">
+		<link rel="stylesheet" href="index.css">
 	</head>
 	
 	<body>
@@ -27,18 +28,58 @@
 			
 		</div>
         <!-- CAMPOS -->
+		<div class = "cuerpo">
 
-        <p>
-                <label for = "nickname">Nickname</label>
-                <input type="text" name="nickname" size="16" required><br>
-                <label for = "nombre">Nombre</label> <input type="text" name="nombre" size="16" required><br>
-                <label for = "apellidos">Apellidos</label> <input type="text" name="apellidos" size="16" required><br>
-                <label for = "contrasenha">Contraseña</label> <input type="password" name="contrasenha" size="16" required><br>
-                <label for = "email">Email</label><input type="email" name="email" placeholder="your@email.com" size="16" required><br>
-        </P>
+			<p>
+				<div class = "etiqueta1">
+					<label for = "nickname">Nickname</label>
+				</div>
 
-        <button type="button" name="guardarButton">Guardar</button>
+				<div class = "campo1">
+					<input type="text" name="nickname" size="16" required>
+				</div>
 
+				<div class = "etiqueta2">
+					<label for = "nombre">Nombre</label> 
+				</div>
+
+				<div class = "campo2">
+					<input type="text" name="nombre" size="16" required>
+				</div>
+
+				<div class = "etiqueta3">
+					<label for = "apellidos">Apellidos</label>
+				</div>
+
+				<div class = "campo3">
+					<input type="text" name="apellidos" size="16" required>
+				</div>
+
+				<div class = "etiqueta4">
+					<label for = "contrasenha">Contraseña</label>
+				</div>
+
+				<div class = "campo4">					
+					<input type="password" name="contrasenha" size="16" required>
+				</div>
+
+				<div class = "etiqueta5">
+					<label for = "email">Email</label>
+				</div>
+
+				<div class = "campo5">
+					<input type="email" name="email" placeholder="your@email.com" size="16" required>
+				</div>
+			</P>
+
+			<div class = "botonborrar">
+				<button type="button" name="borrarButton">Borrar</button>
+			</div>
+
+			<div class = "botonguardar">
+				<button type="button" name="guardarButton">Guardar</button>
+			</div>
+		</div>
        <!-- PIE DE PAGINA-->
 
 		<div class="piePagina">

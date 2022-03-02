@@ -1,0 +1,16 @@
+.imagencentral{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.conjuntoimagenes{
+    display: flex;
+}
+
+.conjuntoimagenes > .imagenes{
+    flex:1;
+    background-color: none; 
+    text-align:center;
+    line-height: 32px;
+    padding: 5px;
+}
