@@ -1,12 +1,164 @@
 
+
 /*
-    NOTICIAS
+    CUERPO
 */
-a.verMas{
+
+
+.cuerpo {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 500px 300px;
+    grid-gap: 10px;
+
+}
+
+
+/*
+
+    NOTICIAS
+
+*/
+
+.noticias {
+
+    grid-column: 1/3;
+    grid-row: 1;
+    margin-top: 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+    position: relative;
+}
+
+.imagen{
+
+    float: left;
+    padding-right: 20px;
+    width: 400px;
+    height: 400px;
+
+}
+
+.imagen img{
+
+    object-fit: contain;
+    width: 100%;
+
+}
+
+/*
+    TEXTO NOTICIAS
+*/
+
+.textito {
+    
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+
+}
+
+
+div.noticias h4 {
+
+    text-align: right;
+
+}
+
+h4.verMas > a{
+
     text-decoration: none;
     color: #00b0e0;
+
 }
-a.verMas:hover{
+
+h4.verMas > a:hover{
     color:#237f99;
+}
+
+
+/*
+
+FORO
+
+*/
+.foro {
+
+    grid-column: 1;
+    grid-row: 2;
+    margin: 2.5%;
+    position: relative;
+}
+
+div.foro h1{
+
+    text-indent: 50px;
+
+}
+
+div.foro h2 {
+
+    font-weight: bolder;
+    text-indent: 20px;
+
+}
+div.foro h3{
+
+    text-align: right;
+
+}
+
+
+
+/*
+GALERIA
+*/
+.galeria {
+
+    border-left: thin solid #00b0e0;
+    grid-column: 2;
+    grid-row: 2;
+    margin: 2.5%;
+    position: relative;
+}
+
+div.galeria h1{
+
+    text-indent: 50px;
+
+}
+
+div.fotogaleria{
+
+    position: relative;
+    left: 20%;
+    width: 500px;
+
+}
+
+div.fotogaleria img{
+
+    object-fit: cover;
+    width: 100%;
+
+}
+
+div.iconoizq img{
+
+    position:absolute;
+    width: 50px;
+    left: -5%;
+    top: 45%;
+    transform: rotateY(180deg);
+    
+}
+
+div.iconoder img{
+
+    position:absolute;
+    width: 50px;
+    right: -5%;
+    top: 45%;
 
 }
