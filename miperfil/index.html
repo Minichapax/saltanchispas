@@ -36,7 +36,7 @@
 				</div>
 
 				<div class = "campo1">
-					<input type="text" name="nickname" size="16" required>
+					<input type="text" id="nickname" size="16" required>
 				</div>
 
 				<div class = "etiqueta2">
@@ -44,7 +44,7 @@
 				</div>
 
 				<div class = "campo2">
-					<input type="text" name="nombre" size="16" required>
+					<input type="text" id="nombre" size="16" required>
 				</div>
 
 				<div class = "etiqueta3">
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class = "campo3">
-					<input type="text" name="apellidos" size="16" required>
+					<input type="text" id="apellidos" size="16" required>
 				</div>
 
 				<div class = "etiqueta4">
@@ -60,7 +60,7 @@
 				</div>
 
 				<div class = "campo4">					
-					<input type="password" name="contrasenha" size="16" required>
+					<input type="password" id="contrasenha" size="16" required>
 				</div>
 
 				<div class = "etiqueta5">
@@ -68,17 +68,47 @@
 				</div>
 
 				<div class = "campo5">
-					<input type="email" name="email" placeholder="your@email.com" size="16" required>
+					<input type="email" id="email" placeholder="your@email.com" size="16" required>
 				</div>
 			</P>
 
 			<div class = "botonborrar">
-				<button type="button" name="borrarButton">Borrar</button>
+				<button id="borrarButton">Borrar</button>
 			</div>
+			<script>
+				const element = document.getElementById("borrarButton");			
+				element.addEventListener('click', borrarElementos);
+				function borrarElementos(){
+					
+					document.getElementById("nickname").value = "";
+					document.getElementById("nombre").value = "";
+					document.getElementById("apellidos").value = "";
+					document.getElementById("contrasenha").value = "";
+					document.getElementById("email").value = "";
+
+				}	
+
+			</script>
 
 			<div class = "botonguardar">
-				<button type="button" name="guardarButton">Guardar</button>
+				<button id="guardarButton">Guardar</button>
 			</div>
+			<script>
+				const element2 = document.getElementById("guardarButton");			
+				element2.addEventListener('click', guardarElementos);
+				function guardarElementos(){
+					
+					var nickname = document.getElementById("nickname").value;
+					var nombre = document.getElementById("nombre").value;
+					var apellidos = document.getElementById("apellidos").value;
+					var contrasenha = document.getElementById("contrasenha").value;
+					var email = document.getElementById("email").value;
+
+					alert("Nickname: " + nickname + "\nNombre: " + nombre + "\nApellidos: " + apellidos + "\nContraseña: " + contrasenha + "\nemail: " + email);
+			
+				}	
+			
+			</script>
 		</div>
        <!-- PIE DE PAGINA-->
 
