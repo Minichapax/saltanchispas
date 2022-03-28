@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="../orange.css">
 		<link rel="stylesheet" href="index.css">
-		<script src="js/jquery-3.6.0.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	</head>
 	<body>
 
@@ -57,9 +57,8 @@
 			
 			<script>
 				$(document).ready(function() {
-					$(".imagenes").click(function(){
+					$(".imagenes").click(function(){	
 						$("#imagecentral").prop('src', this.src);
-
 					});
 				});
 				$(document).ready(function() {
