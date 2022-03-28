@@ -8,6 +8,7 @@
 		<meta name = "author" content = "Alberto Pérez HErnández y Antón Pérez Vázquez">
 		<link rel="stylesheet" href="orange.css">
 		<link rel="stylesheet" href="index.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	</head>
 
@@ -70,18 +71,43 @@
 				<h1>GALERIA</h1>
 			
 				<div class = "fotogaleria">	
-					<img src = "galeria/1862341234.jpeg" alt= "logo en vista de pc" >
+					<div class = "imagens">
+						<img id = "imagenslider" src = "galeria/1862341234.jpeg" alt= "imagen slider" >
+					</div>
+					
 					<div class = "iconoizq">
-						<img src = "galeria/1.png" alt= "icono galeria izquierda">
+						<img id = "iconoi" src = "galeria/1.png" alt= "icono galeria izquierda">
 					</div>
 
 					<div class = "iconoder">
-						<img src = "galeria/1.png" alt= "icono galeria derecha" >
+						<img id = "iconod" src = "galeria/1.png" alt= "icono galeria derecha" >
 					</div>
 				</div>
 
 			</div>
-
+			<script type="text/javascript">
+			$(document).ready(function() {
+				var imagen = 0;
+				const source = [
+					"galeria/1862341234.jpeg", 
+					"galeria/carlossaizn.jpg", 
+					"galeria/marc marquez.jpeg", 
+					"galeria/parisdakar.jpg", 
+					"galeria/wrc.jpg",
+					"galeria/motogp.jpg"
+				];
+				$("#iconoi").click(function(){
+					imagen--;
+					if(imagen < 0) imagen = 5;
+					$("#imagenslider").prop('src', source[imagen]);
+				});
+				$("#iconod").click(function(){
+					imagen++;
+					if(imagen > 5) imagen = 0;
+					$("#imagenslider").prop('src', source[imagen]);
+				});
+			});
+			</script>
 		</div>
 		
 		<!-- PIE DE PAGINA-->

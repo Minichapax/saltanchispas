@@ -6,10 +6,30 @@
 
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 30px 600px;
+    grid-template-rows: 30px 700px 30px;
     grid-gap: 10px;
 }
 
+
+/*
+    Botones
+*/
+.pager {
+
+    list-style: none;
+    text-align: center;    
+    position: relative;
+
+}
+
+.pager-item{
+
+    display: contents;
+}
+
+.pager a{
+    text-decoration: none;
+}
 
 /*
 
@@ -49,7 +69,7 @@ BUSCADOR
 .notis{
 
     height: 200px;
-    position: relative;
+    padding-bottom: 10px;
 
 }
 
@@ -97,7 +117,9 @@ BUSCADOR
 
 }
 
-
+.trend a{
+    text-decoration: none;
+}
 .trend img{
 
     float: left;
