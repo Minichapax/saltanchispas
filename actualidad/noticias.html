@@ -49,6 +49,7 @@
 				const valores = window.location.search;
 				const urlParams = new URLSearchParams(valores);
 				var noticia = urlParams.get('noticia');
+				
 				function loadDoc() {
 					var xhttp = new XMLHttpRequest();
 					xhttp.open("GET", "noticias.xml", true);
@@ -64,15 +65,26 @@
 				function myFunction(xml) {
 					var xmlDoc = xml.responseXML;
 					var x = xmlDoc.getElementsByTagName("CD");
-					var titular = "<img src=\"" + x[noticia].getElementsByTagName("IMAGEN")[0].childNodes[0].nodeValue +  "\" width=\"200\">" +
-						"<h1>" +  x[noticia].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue  + "</h1>" +
-						"<h2>" +  x[noticia].getElementsByTagName("SUBTITLE")[0].childNodes[0].nodeValue  + "</h2>" +
-						"<h4>" +  x[noticia].getElementsByTagName("FECHA")[0].childNodes[0].nodeValue  + "</h4>";
-					document.getElementById("titular").innerHTML = titular;
-					var texto = "<h3>" + x[noticia].getElementsByTagName("TEXT")[0].childNodes[0].nodeValue +  "</h3>";
-					document.getElementById("texto").innerHTML = texto;
+					if(x[noticia] == null || isNaN(noticia)){
+						var texto = "<h1> La noticia a la que estás tratando de acceder no existe </h1>";
+						document.getElementById("texto").innerHTML = texto;
+					}else{
+						var titular = "<img src=\"" + x[noticia].getElementsByTagName("IMAGEN")[0].childNodes[0].nodeValue +  "\">" +
+							"<h1>" +  x[noticia].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue  + "</h1>" +
+							"<h2>" +  x[noticia].getElementsByTagName("SUBTITLE")[0].childNodes[0].nodeValue  + "</h2>" +
+							"<h4>" +  x[noticia].getElementsByTagName("FECHA")[0].childNodes[0].nodeValue  + "</h4>";
+						document.getElementById("titular").innerHTML = titular;
+						var texto = "";
+							for( var i = 0 ; i < x[noticia].getElementsByTagName("TEXT")[0].childNodes.length;i++ ){
+								if(x[noticia].getElementsByTagName("TEXT")[0].childNodes[i].nodeValue != null )
+								texto += "<h3>" + x[noticia].getElementsByTagName("TEXT")[0].childNodes[i].nodeValue +  "</h3>";
+							}
+						document.getElementById("texto").innerHTML = texto;
+
+					}
 				}
 				loadDoc();
+
 			</script>
 
 		</div>
