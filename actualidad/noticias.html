@@ -4,9 +4,11 @@
 	<head>
 		<title>Saltan Chispas</title>		
         <meta name = "author" content = "Alberto Pérez Hernández y Antón Pérez Vázquez">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="../orange.css">
 		<link rel="stylesheet" href="noticias.css">
 
+		
 	</head>
 	<body>
 
@@ -41,24 +43,52 @@
 
 			<!-- NOTICIAS-->
 			
-			<div class = "titular">
-				<img src="../noticias/id1/1264843205.jpg" width="200">
-				<h1>Versttapen consigue el campeonato de la F1 2021</h1>
-				<h2>Consigue la victoria en Abu Dhabi tras un polémico safety car</h2>
-				<h4>12 de Diciembre de 2021</h4>
+			<div class="titular" id="titular"></div>
+			<div class="texto" id="texto"></div>
+			<script>
+				const valores = window.location.search;
+				const urlParams = new URLSearchParams(valores);
+				var noticia = urlParams.get('noticia');
 				
-			</div>
-			<div class = "texto">
-				<h3>
-					El neerlandés Max Verstappen (Red Bull) se consagró hoy como nuevo campeón de la Fórmula 1, al imponerse sobre el británico Lewis Hamilton (Mercedes) en la última vuelta del Gran Premio de Abu Dhabi.
-				El piloto de Red Bull ganó su décima carrera esta temporada para finalizar en el Mundial por delante de Hamilton, siete veces campeón del mundo. El título de constructores fue para Mercedes.
-				<br>El desenlace del Campeonato Mundial de Pilotos tuvo un protagonista inesperado: el canadiense Nicholas Latifi (Williams), que se accidentó en la vuelta 54 de 58 y provocó el ingreso del Auto de Seguridad.
-				Con la carrera neutralizada, se diluyó la diferencia de 14 segundos que Hamilton mantenía sobre su rival y Verstappen, con neumáticos de compuesto duro recién puestos, atacó a todo o nada en el giro final, una vez retirado el Safety Car.
-				El Mercedes no tuvo rendimiento para resistir el embate del Red Bull en ese momento clave y Hamilton vio esfumarse la posibilidad de quedar como el piloto más ganador de la historia de la F1 con ocho títulos.
-				</h3>
-			</div>
+				function loadDoc() {
+					var xhttp = new XMLHttpRequest();
+					xhttp.open("GET", "noticias.xml", true);
+					xhttp.send();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							myFunction(this);
+						}
+					};
+				
+				}
 
-		<div>
+				function myFunction(xml) {
+					var xmlDoc = xml.responseXML;
+					var x = xmlDoc.getElementsByTagName("CD");
+					if(x[noticia] == null || isNaN(noticia)){
+						var texto = "<h1> La noticia a la que estás tratando de acceder no existe </h1>";
+						document.getElementById("texto").innerHTML = texto;
+					}else{
+						var titular = "<img src=\"" + x[noticia].getElementsByTagName("IMAGEN")[0].childNodes[0].nodeValue +  "\">" +
+							"<h1>" +  x[noticia].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue  + "</h1>" +
+							"<h2>" +  x[noticia].getElementsByTagName("SUBTITLE")[0].childNodes[0].nodeValue  + "</h2>" +
+							"<h4>" +  x[noticia].getElementsByTagName("FECHA")[0].childNodes[0].nodeValue  + "</h4>";
+						document.getElementById("titular").innerHTML = titular;
+						var texto = "";
+							for( var i = 0 ; i < x[noticia].getElementsByTagName("TEXT")[0].childNodes.length;i++ ){
+								if(x[noticia].getElementsByTagName("TEXT")[0].childNodes[i].nodeValue != null )
+								texto += "<h3>" + x[noticia].getElementsByTagName("TEXT")[0].childNodes[i].nodeValue +  "</h3>";
+							}
+						document.getElementById("texto").innerHTML = texto;
+
+					}
+				}
+				loadDoc();
+
+			</script>
+
+		</div>
+
 		<!-- PIE DE PAGINA-->
 		<div class="piePagina">
 			<h3 class="pieDePagina">

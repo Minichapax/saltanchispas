@@ -4,6 +4,7 @@
 	<head>
 		<title>Saltan Chispas</title>
         <meta name = "author" content = "Alberto Pérez HErnández y Antón Pérez Vázquez">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="../orange.css">		
 		<link rel="stylesheet" href="index.css">
 
@@ -39,29 +40,45 @@
 
 
 			<!-- NOTICIAS-->
-			<div class = "noticias">
-				<div class = "notis">
-						<img src="../noticias/id2/fernandoalonso1.jpg" width="250" align="left">
-						<h1>¿Cuantos coches ha vendido Alpine gracias a Fernando Alonso?</h1>
-						<h2>Analizamos el antes y después de su llegada a la Formula 1</h2>
-						<h4> 2 de Febrero de 2022</h4>
-				</div>
-
-				<div class = "notis">
-					<a href = "../actualidad/noticias.html" >
-						<img src="../noticias/id1/1264843205.jpg" width="200" align="left">
-						<h1>Versttapen consigue el campeonato de la F1 2021</h1>
-						<h2>Consigue la victoria en Abu Dhabi tras un polémico safety car</h2>
-						<h4>12 de Diciembre de 2021</h4>
-					</a>
-				</div>
+			<div class = "noticias" id = "noticias">
+				
 			</div>
 
-			
-			<!-- BARRITA AZUL VERTICAL-->
-			<p>
+			<script>
+				const valores = window.location.search;
+				const urlParams = new URLSearchParams(valores);
+				var pagina = urlParams.get('pagina');
+				function loadDoc() {
+					var xhttp = new XMLHttpRequest();
+					xhttp.open("GET", "noticias.xml", true);
+					xhttp.send();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							myFunction(this);
+						}
+					};
+				
+				}
+
+				function myFunction(xml) {
+					var xmlDoc = xml.responseXML;
+					var x = xmlDoc.getElementsByTagName("CD");
+					if(isNaN(pagina) || pagina > x.length/3)pagina=0;
+					var titular = "";
+						for(var i = pagina*3; i < x.length && (pagina*3 <= i && i < pagina*3+3) ;i++){
+							titular += "<div class = \"notis\"> <a href = \"../actualidad/noticias.html?noticia=" + i + "\">" +
+							"<img src=\"" + x[i].getElementsByTagName("IMAGEN")[0].childNodes[0].nodeValue +  "\">" +
+							"<h1>" +  x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue  + "</h1>" +
+							"<h2>" +  x[i].getElementsByTagName("SUBTITLE")[0].childNodes[0].nodeValue  + "</h2>" +
+							"<h4>" +  x[i].getElementsByTagName("FECHA")[0].childNodes[0].nodeValue  + "</h4>" +
+							"</a></div>";
+						}
+						document.getElementById("noticias").innerHTML = titular;
 					
-			</p>
+				}
+				loadDoc();
+			</script>
+
 
 			<!-- TRENDING-->
 			<div class = "trending">
@@ -69,23 +86,39 @@
 			<h1><strong>TRENDING</strong></h1>
 
 				<div class = "trend">
-					<img src="../noticias/id3/fernandoalonso2.jpg" width="200" align="left">
-					<h2>Alonso se prepara: "No será muy diferente"</h2>
+					<a href="../actualidad/noticias.html?noticia=4">
+					<img src="../noticias/id5/aloocon.jpg" >
+					<h2>Alpine no dejará pelear a Alonso y Ocon en las últimas 20 vueltas de las carreras</h2>
+					</a>
 				</div>
 
 				<div class = "trend">
-					<img src="../noticias/id4/marc marquez.jpeg" width="200" align="left">
-					<h2>Marc Márquez respira aliviado: ya va camino a Sepang</h2>
+					<a href="../actualidad/noticias.html?noticia=0">
+					<img src="../noticias/id1/1264843205.jpg" >
+					<h2>Versttapen consigue el campeonato de la F1 2021</h2>
+					</a>
 				</div>
 
 				<div class = "trend">
-					<img src="../noticias/id5/wrc horarios.jpg" width="200" align="left">
-					<h2>Previo y horarios del Rally de Montecarlo del WRC 2022</h2>
+					<a href="../actualidad/noticias.html?noticia=3">
+					<img src="../noticias/id4/lecsainz.jpg" >
+					<h2>Sainz y Leclerc lo tienen claro: el DRS aún es necesario</h2>
+					</a>
 				</div>
+
 			</div>
 
-		</div>
 
+		
+
+		</div>
+		<!-- BOTONES-->
+		<div class = "pager-list">
+			<ul class="pager">
+				<li class="pager-item"><a title="Ir a la página 1" href="/actualidad/index.html?pagina=0">1</a></li>
+				<li class="pager-item"><a title="Ir a la página 2" href="/actualidad/index.html?pagina=1">2</a></li>
+			</ul>
+		</div>
 		<!-- PIE DE PAGINA-->
 		<div class="piePagina">
 			<h3 class="pieDePagina">
