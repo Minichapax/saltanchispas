@@ -29,28 +29,19 @@
 			
 		</div>
 
+
         <div class = "cuerpo">
         <!-- BUSCADOR-->
 			<div class ="buscadordiv">
 				<input class = "buscador" type="search" name="myInput" placeholder="Search" size="30" required>
 			</div>
-
-
-            <!--- FORO -->
             <div class = "foro">
                 <h1> FORO </h1>
                 <div class = "hilo">
-                    <h2>Smith - Verstappen wins #1</h2>
-                    <h3>Mario - Merecidisimo</h3>
-                    <h3>Jose - El ganador tendría que ser Hamilton</h3>
                 </div>
                 <div class = "hilo">
-                    <h2>Antón - Debería haber sido bandera roja</h2>
-                    <h3>Alberto - No se pueden terminar carreras con bandera roja!!!</h3>
                 </div>
                 <div class = "hilo">
-                    <h2>Fernando Alonso - Ya vereis el año que viene</h2>
-                    <h3>Carlos Sainz Jr - Lo veremos en la pista</h3>
                 </div>
             </div>
 
@@ -58,11 +49,53 @@
 
             <div class = "recibidas">
                 <h1>RESPUESTAS RECIBIDAS</h1>
-                <h3>Alberto - No se pueden terminar carreras con bandera roja!!!</h3>
-                <h3>Luis - Una pena que se haya lesionado Marquez estaba en su mejor momento</h3>
-                <h3>Espero que Laia Sainz gane el proximo Dakar</h3>
+                <div class = "respuestasrecibidas">
+
+                </div>
             </div>
+
+            <script>
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "index.json", true);
+                xhttp.send();
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        //Foro hilo
+                        const myObj = JSON.parse(this.responseText);
+                        const collection = document.getElementsByClassName("hilo");
+                        let text = `
+                        <h2>${myObj.members[0].nombre} - ${myObj.members[0].mensaje}</h2>
+                        <h3>${myObj.members[0].respuestas[0].nombre} - ${myObj.members[0].respuestas[0].respuesta}</h3>
+                        <h3>${myObj.members[0].respuestas[1].nombre} - ${myObj.members[0].respuestas[1].respuesta}</h3>
+                        `
+                        
+                        collection[0].innerHTML = text;
+                        let text2 = `
+                        <h2>${myObj.members[1].nombre} - ${myObj.members[1].mensaje}</h2>
+                        <h3>${myObj.members[1].respuestas[0].nombre} - ${myObj.members[1].respuestas[0].respuesta}</h3>
+                        `
+                        collection[1].innerHTML = text2;
+                        let text3 = `
+                        <h2>${myObj.members[2].nombre} - ${myObj.members[2].mensaje}</h2>
+                        <h3>${myObj.members[2].respuestas[0].nombre} - ${myObj.members[2].respuestas[0].respuesta}</h3>
+                        `
+                        collection[2].innerHTML = text3;
+
+
+                        //Respuestas recibidas
+                        const collection2 = document.getElementsByClassName("respuestasrecibidas");
+                        let texto4 = `
+                        <h3>${myObj.members[3].nombre} - ${myObj.members[3].mensaje}</h3>
+                        <h3>${myObj.members[4].nombre} - ${myObj.members[4].mensaje}</h3>
+                        <h3>${myObj.members[5].nombre} - ${myObj.members[5].mensaje}</h3>                    
+                        `
+                        collection2[0].innerHTML = texto4;
+                    } 
+                };
+        </script>
+
         </div>
+        
         <!-- PIE DE PAGINA-->
 		<div class="piePagina">
 			<h3 class="pieDePagina">

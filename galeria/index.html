@@ -8,6 +8,7 @@
 
 		<link rel="stylesheet" href="../orange.css">
 		<link rel="stylesheet" href="index.css">
+		<script src="js/jquery-3.6.0.js"></script>
 	</head>
 	<body>
 
@@ -34,26 +35,57 @@
 		<div class = "cuerpo">
 
 			<div class = "checkboxes">
-				<input type="checkbox" id="fotos" checked><label for="fotos">Fotos</label>
-				<input type="checkbox" id="videos" checked><label for="videos">Videos</label>
-				<input type="checkbox" id="gifs" value="???"> <label for="gifs">Gifs</label>        
+				<input type="checkbox" class="checkbox" id="fotos" checked><label for="fotos">Fotos</label>
+				<input type="checkbox" class="checkbox" id="videos" checked><label for="videos">Videos</label>
+				<input type="checkbox" class="checkbox" id="gifs" value = ???> <label for="gifs">Gifs</label>        
 			</div>
 
 
 		<!-- NOTICIAS-->
 		
-			<div class = "imagencentral">
-				<img src="../galeria/1862341234.jpeg" height="500">
+			<div class = "imagencentral" id = "centralpic">
+				<img id = "imagecentral" src="../galeria/1862341234.jpeg" height="500">
 			</div>
 
 			<div class = "conjuntoimagenes">
-				<img class = "imagenes" src = "../galeria/wrc.jpg" height="200">
-				<img class = "imagenes" class = "imagenes" src = "../galeria/marc marquez.jpeg" height="200">
-				<img class = "imagenes" src = "../galeria/carlossaizn.jpg" height="200">
-				<img class = "imagenes" src = "../galeria/parisdakar.jpg" height="200">
-				<iframe class = "imagenes" height="200" src="https://www.youtube.com/embed/UgxplLuex0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<img class = "imagenes" id = "imagenwrc" src = "../galeria/wrc.jpg" height="200">
+				<img class = "imagenes" id = "imagenmarc" src = "../galeria/marc marquez.jpeg" height="200">
+				<img class = "imagenes" id = "imagencarlos" src = "../galeria/carlossaizn.jpg" height="200">
+				<img class = "imagenes" id = "imagenparisdakar" src = "../galeria/parisdakar.jpg" height="200">
+				<iframe class = "imagenes"  id = "videopresentacion" height="200" src="https://www.youtube.com/embed/UgxplLuex0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
+			
+			<script>
+				$(document).ready(function() {
+					$(".imagenes").click(function(){
+						$("#imagecentral").prop('src', this.src);
 
+					});
+				});
+				$(document).ready(function() {
+					$(".checkbox").click(function(){
+						var checkboxvideos = $("#videos").prop('checked');
+						if(checkboxvideos == false){
+							$("iframe").hide();
+						}
+						else{
+							$("iframe").show();
+						}
+
+
+						var checkboxfotos = $("#fotos").prop('checked');
+						if(checkboxfotos == false){
+							$("img").hide();
+						}
+						else{
+							$("img").show();
+						}	
+						var checkboxgifs = $("#gifs").prop('checked');					
+											
+					});
+
+				});
+			</script>
 
 		</div>
 		<!-- PIE DE PAGINA-->
