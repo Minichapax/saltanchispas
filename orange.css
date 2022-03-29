@@ -89,11 +89,14 @@ CABECERA DE LAS PAGINAS
 
 
 }
+
+.menu > a:visited{
+    color:#000000;
+}
 .menu > a:hover{
     color:#ffffff;
     background-color: #00b0e0;
 }
-
 
 
 /*
