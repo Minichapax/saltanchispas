@@ -48,11 +48,11 @@
 			</div>
 
 			<div class = "conjuntoimagenes">
-				<img class = "imagenes" id = "imagenwrc" src = "../galeria/wrc.jpg" height="200">
-				<img class = "imagenes" id = "imagenmarc" src = "../galeria/marc marquez.jpeg" height="200">
-				<img class = "imagenes" id = "imagencarlos" src = "../galeria/carlossaizn.jpg" height="200">
-				<img class = "imagenes" id = "imagenparisdakar" src = "../galeria/parisdakar.jpg" height="200">
-				<iframe class = "imagenes"  id = "videopresentacion" height="200" src="https://www.youtube.com/embed/UgxplLuex0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<img class = "imagenes" id = "imagengal" src = "../galeria/wrc.jpg" height="200">
+				<img class = "imagenes" id = "imagengal" src = "../galeria/marc marquez.jpeg" height="200">
+				<img class = "imagenes" id = "imagengal" src = "../galeria/carlossaizn.jpg" height="200">
+				<img class = "imagenes" id = "imagengal" src = "../galeria/parisdakar.jpg" height="200">
+				<iframe class = "imagenesv"  id = "videopresentacion" height="200" src="https://www.youtube.com/embed/UgxplLuex0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			
 			<script>
@@ -74,10 +74,12 @@
 
 						var checkboxfotos = $("#fotos").prop('checked');
 						if(checkboxfotos == false){
-							$("img").hide();
+							$(".imagenes").hide();
+							$("#imagecentral").hide();
 						}
 						else{
-							$("img").show();
+							$(".imagenes").show();
+							$("#imagecentral").show();
 						}	
 						var checkboxgifs = $("#gifs").prop('checked');					
 											
