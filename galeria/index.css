@@ -14,3 +14,10 @@
     line-height: 32px;
     padding: 5px;
 }
+.conjuntoimagenes > .imagenesv{
+    flex:1;
+    background-color: none; 
+    text-align:center;
+    line-height: 32px;
+    padding: 5px;
+}
