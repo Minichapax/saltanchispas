@@ -48,7 +48,8 @@
             <!-- RESPUESTAS RECIBIDAS -->
 
             <div class = "recibidas">
-                <h1>RESPUESTAS RECIBIDAS</h1>
+                <h1 >RESPUESTAS RECIBIDAS</h1>
+                <img id = "ojoRespuestas" title = "Ver respuestas"   src="ojo.png">
                 <div class = "respuestasrecibidas">
 
                 </div>
@@ -85,13 +86,33 @@
                         //Respuestas recibidas
                         const collection2 = document.getElementsByClassName("respuestasrecibidas");
                         let texto4 = `
-                        <h3>${myObj.members[3].nombre} - ${myObj.members[3].mensaje}</h3>
-                        <h3>${myObj.members[4].nombre} - ${myObj.members[4].mensaje}</h3>
-                        <h3>${myObj.members[5].nombre} - ${myObj.members[5].mensaje}</h3>                    
+                        <h3 class = "respuesta" hidden>${myObj.members[3].nombre} - ${myObj.members[3].mensaje}</h3>
+                        <h3 class = "respuesta" hidden>${myObj.members[4].nombre} - ${myObj.members[4].mensaje}</h3>
+                        <h3 class = "respuesta" hidden>${myObj.members[5].nombre} - ${myObj.members[5].mensaje}</h3>                    
                         `
                         collection2[0].innerHTML = texto4;
-                    } 
+                    }
+                    
+                    
                 };
+
+                //DOM para mostrar respuestas recibidas
+                const element = document.getElementById("ojoRespuestas");			
+				element.addEventListener('mouseover', mostarElementos);
+				function mostarElementos(){
+					var res = document.getElementsByClassName("respuesta"); 
+                    for(var i = 0; i < res.length; i++){
+                        res[i].removeAttribute('hidden', false);
+                    }
+				}	
+                element.addEventListener('mouseout', ocultarElementos);
+				function ocultarElementos(){
+					var res = document.getElementsByClassName("respuesta"); 
+                    for(var i = 0; i < res.length; i++){
+                        res[i].setAttribute('hidden', false);
+                    }
+				}	
+
         </script>
 
         </div>
