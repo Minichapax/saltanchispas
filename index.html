@@ -86,27 +86,29 @@
 
 			</div>
 			<script type="text/javascript">
-			$(document).ready(function() {
-				var imagen = 0;
-				const source = [
-					"galeria/1862341234.jpeg", 
-					"galeria/carlossaizn.jpg", 
-					"galeria/marc marquez.jpeg", 
-					"galeria/parisdakar.jpg", 
-					"galeria/wrc.jpg",
-					"galeria/motogp.jpg"
-				];
-				$("#iconoi").click(function(){
-					imagen--;
-					if(imagen < 0) imagen = 5;
-					$("#imagenslider").prop('src', source[imagen]);
+				anterior = a => a-1;
+				siguiente = a => a+1;
+				$(document).ready(function() {
+					var imagen = 0;
+					const source = [
+						"galeria/1862341234.jpeg", 
+						"galeria/carlossaizn.jpg", 
+						"galeria/marc marquez.jpeg", 
+						"galeria/parisdakar.jpg", 
+						"galeria/wrc.jpg",
+						"galeria/motogp.jpg"
+					];
+					$("#iconoi").click(function(){
+						imagen = anterior(imagen);
+						if(imagen < 0) imagen = 5;
+						$("#imagenslider").prop('src', source[imagen]);
+					});
+					$("#iconod").click(function(){
+						imagen = siguiente(imagen);
+						if(imagen > 5) imagen = 0;
+						$("#imagenslider").prop('src', source[imagen]);
+					});
 				});
-				$("#iconod").click(function(){
-					imagen++;
-					if(imagen > 5) imagen = 0;
-					$("#imagenslider").prop('src', source[imagen]);
-				});
-			});
 			</script>
 		</div>
 		
