@@ -47,6 +47,7 @@ BUSCADOR
     text-align: right;
 }
 
+
 .hilo{
 
     border-bottom: thin solid #000000;
@@ -62,3 +63,12 @@ BUSCADOR
     padding: 5%;
 
 }
+
+.recibidas img{
+    position: absolute;
+    right: 5%;
+    translate: 0px -70px;
+    width: 50px;
+    height: 40px;
+
+} 
