@@ -45,18 +45,18 @@ public class login extends HttpServlet {
 	* @param con database connection
 	* @param sqlStatement SQL SELECT statement to execute
 	*/
-	protected boolean iniciarSesion(Connection con, String nickname, String password) throws Exception {
-		boolean resultado = false;
+	protected int iniciarSesion(Connection con, String nickname, String password) throws Exception {
+		int resultado = 0;
 		try {
-			String consulta = "select * from usuarios where nicnkame = ? and password = ?";
+			String consulta = "select id from usuarios where nickname = ? and password = ?";
 			PreparedStatement stm=con.prepareStatement(consulta);
 			stm.setString(1, nickname);
 			stm.setString(2, password);
 			ResultSet rs = stm.executeQuery( );
 			if(rs.next()) { //Comprobamos que haya un resultado al menos
-				resultado = true; //Devolvemos true
+				resultado = rs.getInt("id"); //Devolvemos true
 			}
-			rs.close ( );
+			rs.close ();
 		}
 		catch (SQLException e) {
 			System.out.println ( "Error ejecutando la sentencia SQL" );
@@ -106,7 +106,7 @@ public class login extends HttpServlet {
 	con = obtenerConexion(response); //Obtenemos conexion
 	boolean ifa = false;
 	modificarInsertarDatos(con, nickname, nombre,apellidos, password, correo);//Iniciar sesion con username password
-	
+	int id = iniciarSesion(con, nickname, password);
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println(
@@ -184,8 +184,8 @@ public class login extends HttpServlet {
 				"<div class = \"campo5\">"+
 					"<input type=\"email\" id=\"email\" placeholder=\""+correo+"\" size=\"16\" required>"+
 				"</div>"+
-			"</P>"+
 
+			"</P>"+
 			"<div class = \"botonborrar\">"+
 				"<button id=\"borrarButton\">Borrar</button>"+
 			"</div>"+
@@ -207,6 +207,7 @@ public class login extends HttpServlet {
 			"<div class = \"botonguardar\">"+
 				"<button id=\"guardarButton\">Guardar</button>"+
 			"</div>"+
+
 			"<script>"+
 				"const element2 = document.getElementById(\"guardarButton\");"+			
 				"element2.addEventListener('click', guardarElementos);"+
@@ -222,7 +223,8 @@ public class login extends HttpServlet {
 			
 			"</script>"+
 		"</div>"+
-	
+		"<div align=\"center\"> INFORMACIÓN GUARDADA CORRECTAMENTE PARA EL USUARIO #"+ String.valueOf(id) + "</div>"+
+
        "<!-- PIE DE PAGINA-->"+
 
 		"<div class=\"piePagina\">"+
